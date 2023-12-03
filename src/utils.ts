@@ -36,3 +36,21 @@ export const rankSuffix = (rank: number) => rank === 1 ? 'er' : 'ème'
 
 // round grade
 export const formatGrade = (grade: number) => (Math.round(grade * 100) / 100).toString()
+
+
+// image hashing function
+export async function hashFile(file: File) {
+  // get file buffer
+  const fileBuffer = await file.arrayBuffer()
+  
+  // hash file buffer
+  const hashBuffer = await crypto.subtle.digest('SHA-256', fileBuffer)
+
+  // convert ArrayBuffer to Array
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+  // convert bytes to hex string                  
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  return hashHex;
+}

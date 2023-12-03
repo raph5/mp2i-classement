@@ -108,6 +108,7 @@ export function usePushGrade(): usePushGradeHook {
     const gradeDoc = doc(db, 'users', user.uid, 'grades', testId)
 
     // upload photo
+    // TODO: impement useUploadImage hook
     const photoUri = `grade-photo/${crypto.randomUUID()}`
     const photoRef = ref(storage, photoUri)
     await uploadBytes(photoRef, photo)
