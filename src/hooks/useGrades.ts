@@ -2,10 +2,9 @@ import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "../firebase/firestore";
 import { useAuth } from "./useAuth";
 import { type Test, useTests } from "./useTests";
-import { ref, uploadBytes } from "firebase/storage"
-import { storage } from "../firebase/storage";
 import { User, useUsers } from "./useUsers";
 import { useEffect, useState } from "react";
+import { useUploadFile } from "./useUploadFile";
 
 export interface Grade {
   grade: number
@@ -99,22 +98,18 @@ export type usePushGradeHook = [ (grade: number, testId: string, photo: File, an
 export function usePushGrade(): usePushGradeHook {
 
   const [testsLib, testsLibLoading] = useTests()
-
+  const uploadFile = useUploadFile()
   const { user } = useAuth()
   
   async function push(grade: number, testId: string, photo: File, anonymous=false, emoji='') {
     if(!user) throw Error("user not loged")
-    
+
     const gradeDoc = doc(db, 'users', user.uid, 'grades', testId)
 
-    // upload photo
-    // TODO: impement useUploadImage hook
-    const photoUri = `grade-photo/${crypto.randomUUID()}`
-    const photoRef = ref(storage, photoUri)
-    await uploadBytes(photoRef, photo)
+    const { uri } = await uploadFile(photo, 'grade-photo', `${user.uid}-${testId}`)
 
-    const gradeData = createGrade(grade, photoUri, anonymous, emoji, testId, user.uid, testsLib)
-    
+    const gradeData = createGrade(grade, uri, anonymous, emoji, testId, user.uid, testsLib)
+
     await setDoc(gradeDoc, gradeData)
   }
 

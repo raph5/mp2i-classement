@@ -6,8 +6,12 @@ import { Test, useTests } from "../hooks/useTests"
 import { clamp, getSelectionItem } from "../utils"
 import { usePushGrade } from "../hooks/useGrades"
 import ImageButton from "../components/small/ImageButton"
+import { useNavigate } from "react-router-dom"
 
 const GradeForm: React.FC = () => {
+
+  // import hook for redirection
+  const navigate = useNavigate()
 
   // get subjects and tests from firestore
   const [subjects, subjectsLoading] = useSubjects()
@@ -19,6 +23,7 @@ const GradeForm: React.FC = () => {
   const [testsSelection, setTestsSelection] = useState<Selection>(new Set([]))
   const [isAnonymous, setIsAnonymous] = useState(false)
   const [photo, setPhoto] = useState<File>()
+  const [success, setSuccess] = useState(false)
 
   // filter tests with curent subject
   const [tests, setTests] = useState<Test[]>([])
@@ -81,8 +86,13 @@ const GradeForm: React.FC = () => {
       if(!photo) throw new Error("No photo")
   
       await pushGrade(gradeVal, test, photo)
-      
+
       setLoading(false)
+      setSuccess(true)
+      
+      // if grade push success go to main page
+      // TODO: change redirection to test ranking page
+      // navigate('/#/app')
     }
     catch (error) {
       setLoading(false)
@@ -164,6 +174,9 @@ const GradeForm: React.FC = () => {
           isDisabled={!isValid}
           isLoading={loading || !pushGradeReady}
           onClick={submitGrade}
+          startContent={success && !loading &&
+            <span className="material-symbols-rounded">check</span>
+          }
         >Ajouter la note</Button>
       </div>
     </section>

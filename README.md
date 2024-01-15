@@ -3,8 +3,8 @@
 
 - [x] Icon verifié sur l'avatar
 - [ ] Forumlaire pour éditer le profile
-- [ ] Retirer les photos en double dans le storage
-- [ ] Infos sur la note
+- [x] Retirer les photos en double dans le storage
+- [x] Infos sur la note
 - [ ] Classement par DS
 
 
@@ -15,3 +15,5 @@
 - [ ] Emoji
 - [ ] Commentaires
 - [ ] Ne plus afficher la landing page à chaque reload
+- [ ] Ajouter les filtresr de classement dans l'url
+- [ ] Ajouter la date dans chaque grade

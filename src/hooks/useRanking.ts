@@ -29,8 +29,6 @@ function gradesToRanking(gradesLib: Grade[], filter: (g: Grade) => boolean) {
     ranks[i].rank = i + 1
   }
 
-  console.log(ranks)
-
   return ranks
 
 }
