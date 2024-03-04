@@ -5,8 +5,8 @@
 - [x] Forumlaire pour éditer le profile
 - [x] Retirer les photos en double dans le storage
 - [x] Infos sur la note
-- [ ] Classement par DS (rediriger l'utilisateur sur ce classement un fois la note publié)
-- [ ] Refaire le calcul de moyenne générale (useGeneralRanking)
+- [x] Classement par DS (rediriger l'utilisateur sur ce classement un fois la note publié)
+- [x] Refaire le calcul de moyenne générale (useGeneralRanking)
 
 
 ## Idées de features :

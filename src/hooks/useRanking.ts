@@ -8,7 +8,36 @@ export interface Rank {
 }
 
 
-function gradesToRanking(gradesLib: Grade[], filter: (g: Grade) => boolean) {
+function simpleAverage(grades: Grade[]): number {
+  let sum = 0
+  for(const g of grades) {
+    sum += g.grade
+  }
+  return sum / grades.length
+}
+
+function subjectAverage(grades: Grade[]): number {
+  const averageBySubject: Record<string, [number, number]> = {}
+  for(const g of grades) {
+    if(averageBySubject[g.subjectId]) {
+      const [ average, coef ] = averageBySubject[g.subjectId]
+      averageBySubject[g.subjectId] = [ (average*coef + g.grade) / (coef+1), coef+1 ]
+    }
+    else {
+      averageBySubject[g.subjectId] = [ g.grade, 1 ]
+    }
+  }
+
+  console.log(averageBySubject)
+
+  let sum = 0
+  for(const [average] of Object.values(averageBySubject)) {
+    sum += average
+  }
+  return sum / Object.values(averageBySubject).length
+}
+
+function gradesToRanking(gradesLib: Grade[], filter: (g: Grade) => boolean, getAverage: (g: Grade[]) => number = simpleAverage) {
   
   const ranks: Rank[] = []
   const grades = gradesLib.filter(filter)
@@ -19,7 +48,7 @@ function gradesToRanking(gradesLib: Grade[], filter: (g: Grade) => boolean) {
     else u.add(userId)
     
     const userGrades = grades.filter(g => g.userId == userId)
-    const average = userGrades.reduce((sum, g) => sum + g.grade, 0) / userGrades.length
+    const average = getAverage(userGrades)
 
     ranks.push({ rank: 0, average, userId, grades: userGrades })
   }
@@ -38,7 +67,7 @@ function gradesToRanking(gradesLib: Grade[], filter: (g: Grade) => boolean) {
 export type useGeneralRankingHook = (grades: Grade[]) => Rank[]
 
 export function useGeneralRanking(): useGeneralRankingHook {
-  return (grades: Grade[]) => gradesToRanking(grades, () => true)
+  return (grades: Grade[]) => gradesToRanking(grades, () => true, subjectAverage)
 }
 
 
