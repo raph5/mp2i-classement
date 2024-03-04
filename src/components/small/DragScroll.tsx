@@ -1,5 +1,4 @@
 import React, { useRef, MouseEvent } from "react"
-import { omit } from "../../utils"
 
 interface DragScrollProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 

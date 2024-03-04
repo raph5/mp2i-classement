@@ -6,12 +6,8 @@ import { Test, useTests } from "../hooks/useTests"
 import { clamp, getSelectionItem } from "../utils"
 import { usePushGrade } from "../hooks/useGrades"
 import ImageButton from "../components/small/ImageButton"
-import { useNavigate } from "react-router-dom"
 
 const GradeForm: React.FC = () => {
-
-  // import hook for redirection
-  const navigate = useNavigate()
 
   // get subjects and tests from firestore
   const [subjects, subjectsLoading] = useSubjects()

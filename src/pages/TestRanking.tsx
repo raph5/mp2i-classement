@@ -5,7 +5,7 @@ import { useDownloadURL } from "react-firebase-hooks/storage"
 import { ref } from "firebase/storage"
 import { Subject, useSubjects } from "../hooks/useSubjects"
 import { Grade, useGrades } from "../hooks/useGrades"
-import { useGeneralRanking, useSubjectRanking, useTestRanking } from "../hooks/useRanking"
+import { useTestRanking } from "../hooks/useRanking"
 import { User, useUsers } from "../hooks/useUsers"
 import RankingCard from "../components/small/RankingCard"
 import RankingModal from "../components/small/RankingModal"
@@ -93,7 +93,7 @@ const Ranking: React.FC<RankingProps> = ({ rank, userId, users, grade, subjects 
 
 const TestRankingPage: React.FC = () => {
 
-  const [ subjects, subjectsLoading ] = useSubjects()
+  const [ subjects ] = useSubjects()
   const [ grades, gradesLoading ] = useGrades()
   const [ users, usersLoading ] = useUsers()
   const [ tests, testsLoading ] = useTests()
