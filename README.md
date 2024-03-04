@@ -2,10 +2,11 @@
 ## Features à ajouter avant de publier :
 
 - [x] Icon verifié sur l'avatar
-- [ ] Forumlaire pour éditer le profile
+- [x] Forumlaire pour éditer le profile
 - [x] Retirer les photos en double dans le storage
 - [x] Infos sur la note
-- [ ] Classement par DS
+- [ ] Classement par DS (rediriger l'utilisateur sur ce classement un fois la note publié)
+- [ ] Refaire le calcul de moyenne générale (useGeneralRanking)
 
 
 ## Idées de features :

@@ -33,6 +33,9 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
             <Link color="foreground" className="w-full" href="/#/app" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par matière</Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
+            <Link color="foreground" className="w-full" href="/#/app/test-ranking" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par devoir</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
             <Link color="foreground" className="w-full" href="/#/app/profile" size="lg" onClick={() => setIsMenuOpen(false)}>Profile</Link>
           </NavbarMenuItem>
           <NavbarMenuItem>

@@ -54,3 +54,6 @@ export async function hashFile(file: File) {
   
   return hashHex;
 }
+
+
+export const MONTH = [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ]

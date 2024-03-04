@@ -28,13 +28,12 @@ interface RankingProps {
   subjects: Subject[]
 }
 
+
 const GradeImage: React.FC<GradeImageProps> = ({ grade, subjectId, photoUri, subjects }) => {
   const subject = subjects.find(s => s.id == subjectId)
   const imageRef = ref(storage, photoUri)
   const [ imageUrl ] = useDownloadURL(imageRef)
 
-  console.log(imageRef)
-  
   return (
     <div className="flex flex-col items-center relative">
       <div className="flex w-full absolute z-20">
@@ -48,7 +47,6 @@ const GradeImage: React.FC<GradeImageProps> = ({ grade, subjectId, photoUri, sub
 
 const Ranking: React.FC<RankingProps> = ({ rank, average, userId, users, grades, subjects }) => {
   const user = users.find(u => u.id == userId)
-  const userGrades = grades.filter(g => g.userId == userId)
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
@@ -64,7 +62,7 @@ const Ranking: React.FC<RankingProps> = ({ rank, average, userId, users, grades,
         onClick={onOpen} />
       <RankingModal header={user?.name ?? ''} isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior="inside">
         <div className="flex flex-col gap-4 h-96">
-          {userGrades.map(({ grade, subjectId, photoUri }) => (
+          {grades.map(({ grade, subjectId, photoUri }) => (
             <GradeImage
               grade={grade}
               subjectId={subjectId}
@@ -132,13 +130,13 @@ const SubjectRankingPage: React.FC = () => {
             <Skeleton />
           </Card>
         ) : (
-          ranking?.map(({ rank, average, userId }) => (
+          ranking?.map(({ rank, average, userId, grades: rankGrades }) => (
             <Ranking
               rank={rank}
               average={average}
               userId={userId}
               users={users}
-              grades={grades}
+              grades={rankGrades}
               subjects={subjects}
               key={userId} />
           ))

@@ -18,6 +18,8 @@ import UserProvider from './contexts/UserContext.tsx'
 import ProfilePage from './pages/Profile.tsx';
 import GradeForm from './pages/GradeForm.tsx';
 import SubjectRankingPage from './pages/SubjectRanking.tsx';
+import ProfileEditPage from './pages/ProfileEdit.tsx';
+import TestRankingPage from './pages/TestRanking.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -58,7 +60,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               }
             >
               <Route index element={<SubjectRankingPage />} />
+              <Route path='test-ranking' element={<TestRankingPage />} />
               <Route path='profile' element={<ProfilePage />} />
+              <Route path='profile-edit' element={<ProfileEditPage />} />
               <Route path='grade-form' element={<GradeForm />} />
             </Route>
 

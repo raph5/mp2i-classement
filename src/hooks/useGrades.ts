@@ -93,7 +93,7 @@ export function useGrades(): useGradesHook {
 
 
 // [ pushGrade, isReady ]
-export type usePushGradeHook = [ (grade: number, testId: string, photo: File, anonymous?: boolean, emoji?: string) => void, boolean ]
+export type usePushGradeHook = [ (grade: number, testId: string, photo: File, anonymous?: boolean, emoji?: string) => Promise<void>, boolean ]
 
 export function usePushGrade(): usePushGradeHook {
 

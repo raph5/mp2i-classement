@@ -31,7 +31,7 @@ async function isUserValid(user: User) {
         isValid: false,
         name: user.displayName,
         id: user.uid,
-        photoUrl: user.photoURL
+        photoUri: user.photoURL
       },
       { merge: true }
     )

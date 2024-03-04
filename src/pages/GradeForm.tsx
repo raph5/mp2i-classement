@@ -1,4 +1,4 @@
-import { Button, Input, Select, SelectItem, Switch, type Selection } from "@nextui-org/react"
+import { Button, Input, Select, SelectItem, type Selection } from "@nextui-org/react"
 import type React from "react"
 import { useEffect, useState } from "react"
 import { useSubjects } from "../hooks/useSubjects"
@@ -21,9 +21,12 @@ const GradeForm: React.FC = () => {
   const [grade, setGrade] = useState('')
   const [subjectsSelection, setSubjectsSelection] = useState<Selection>(new Set([]))
   const [testsSelection, setTestsSelection] = useState<Selection>(new Set([]))
-  const [isAnonymous, setIsAnonymous] = useState(false)
   const [photo, setPhoto] = useState<File>()
+  // const [isAnonymous, setIsAnonymous] = useState(false)
+
+  // form state
   const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   // filter tests with curent subject
   const [tests, setTests] = useState<Test[]>([])
@@ -51,9 +54,6 @@ const GradeForm: React.FC = () => {
       Boolean(photo)
     )
   }, [grade, subjectsSelection, testsSelection, photo])
-  
-  // is form loading
-  const [loading, setLoading] = useState(false);
 
   // camlp grade to [0, 20]
   function campedGrade() {
@@ -87,16 +87,14 @@ const GradeForm: React.FC = () => {
   
       await pushGrade(gradeVal, test, photo)
 
-      setLoading(false)
       setSuccess(true)
-      
+
       // if grade push success go to main page
       // TODO: change redirection to test ranking page
       // navigate('/#/app')
     }
-    catch (error) {
+    finally {
       setLoading(false)
-      throw error
     }
   }
 
@@ -161,15 +159,15 @@ const GradeForm: React.FC = () => {
           }
         >Ajouter un emoji</EmojiButton> */}
         
-        <Switch
+        {/* <Switch
           isSelected={isAnonymous}
           onValueChange={setIsAnonymous}
         >
           Anonyme
-        </Switch>
+        </Switch> */}
 
         <Button
-          className="mt-4"
+          className="mt-6"
           color="primary"
           isDisabled={!isValid}
           isLoading={loading || !pushGradeReady}
