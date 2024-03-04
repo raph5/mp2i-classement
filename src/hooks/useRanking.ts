@@ -28,8 +28,6 @@ function subjectAverage(grades: Grade[]): number {
     }
   }
 
-  console.log(averageBySubject)
-
   let sum = 0
   for(const [average] of Object.values(averageBySubject)) {
     sum += average

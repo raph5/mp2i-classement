@@ -39,7 +39,7 @@ const SignupPage: React.FC = () => {
     try {
       await signUp(email, pwd)
     } catch(error) {
-      console.log(error)
+      console.error(error)
       setEmailError("email ou mot de passe invalide")
       setPwdError("email ou mot de passe invalide")
     }

@@ -34,7 +34,7 @@ const SignupFormPage: React.FC = () => {
       })
       navigate('/app')
     } catch(error) {
-      console.log(error)
+      console.error(error)
       setNameError("nom invalide")
     }
 

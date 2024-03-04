@@ -69,7 +69,6 @@ export function useEditUser(): useEditUserHook {
     }
     if(photo) {
       const { uri } = await uploadFile(photo, 'pp', auth.user.uid);
-      console.log(uri)
       userData.photoUri = "storage:" + uri
     }
 

@@ -51,8 +51,6 @@ const GradeImage: React.FC<GradeImageProps> = ({ grade, subjectId, photoUri, sub
   const imageRef = ref(storage, photoUri)
   const [ imageUrl ] = useDownloadURL(imageRef)
 
-  console.log(imageRef)
-  
   return (
     <div className="flex flex-col items-center relative">
       <div className="flex w-full absolute z-20">

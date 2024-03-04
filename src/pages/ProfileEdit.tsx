@@ -39,7 +39,6 @@ const ProfileEditPage: React.FC = () => {
   function updatePhoto(photo: File | undefined) {
     if(!photo) return;
     setPhotoPreviewUrl(URL.createObjectURL(photo));
-    console.log(photoPreviewUrl);
     setPhoto(photo);
   }
 
