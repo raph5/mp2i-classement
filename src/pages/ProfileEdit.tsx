@@ -25,7 +25,7 @@ const ProfileEditPage: React.FC = () => {
     try {
       await editUser({ name: userName, photo: photo });
       setSuccess(true);
-      navigate('/#/app/profile');
+      navigate('/app/profile');
     }
     finally {
       setLoading(false);

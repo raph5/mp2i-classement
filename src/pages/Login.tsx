@@ -88,7 +88,7 @@ const LoginPage: React.FC = () => {
         </div>
 
         <p className="mt-auto">
-          Si vous n'avez pas de compte ? <Link href="/#/signup">inscrivez vous</Link>
+          Si vous n'avez pas de compte ? <Link href="/signup">inscrivez vous</Link>
         </p>
       </section>
     </PublicLayout>

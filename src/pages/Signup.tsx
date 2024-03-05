@@ -87,7 +87,7 @@ const SignupPage: React.FC = () => {
         </div>
 
         <p className="mt-auto">
-          Si vous avez déjà un compte ? <Link href="/#/login">connectez vous</Link>
+          Si vous avez déjà un compte ? <Link href="/login">connectez vous</Link>
         </p>
       </section>
     </PublicLayout>

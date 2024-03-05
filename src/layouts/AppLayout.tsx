@@ -22,7 +22,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
         <NavbarContent justify="end">
           <NavbarItem>
-            <Button as={Link} color="primary" href="/#/app/grade-form" variant="flat" onClick={() => setIsMenuOpen(false)}>
+            <Button as={Link} color="primary" href="/app/grade-form" variant="flat" onClick={() => setIsMenuOpen(false)}>
               Ajouter une note
             </Button>
           </NavbarItem>
@@ -30,13 +30,13 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         
         <NavbarMenu>
           <NavbarMenuItem>
-            <Link color="foreground" className="w-full" href="/#/app" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par matière</Link>
+            <Link color="foreground" className="w-full" href="/app" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par matière</Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link color="foreground" className="w-full" href="/#/app/test-ranking" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par devoir</Link>
+            <Link color="foreground" className="w-full" href="/app/test-ranking" size="lg" onClick={() => setIsMenuOpen(false)}>Classement par devoir</Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link color="foreground" className="w-full" href="/#/app/profile" size="lg" onClick={() => setIsMenuOpen(false)}>Profile</Link>
+            <Link color="foreground" className="w-full" href="/app/profile" size="lg" onClick={() => setIsMenuOpen(false)}>Profile</Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <button className="text-danger" onClick={() => {signOut(auth); setIsMenuOpen(false)}}>Se déconecter</button>

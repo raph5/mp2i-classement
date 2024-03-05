@@ -35,7 +35,7 @@ const ProfilePage: React.FC = () => {
       <Button
         className="mb-8 w-full"
         as={Link}
-        href="/#/app/profile-edit"
+        href="/app/profile-edit"
         startContent={
           <span className="material-symbols-rounded">edit</span>
         }

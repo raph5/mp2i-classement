@@ -87,7 +87,7 @@ const GradeForm: React.FC = () => {
 
       // if grade push success go to main page
       // TODO: change redirection to test ranking page
-      // navigate('/#/app')
+      // navigate('/app')
     }
     finally {
       setLoading(false)
