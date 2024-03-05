@@ -6,8 +6,11 @@ import { Test, useTests } from "../hooks/useTests"
 import { clamp, getSelectionItem } from "../utils"
 import { usePushGrade } from "../hooks/useGrades"
 import ImageButton from "../components/small/ImageButton"
+import { useNavigate } from "react-router-dom"
 
 const GradeForm: React.FC = () => {
+
+  const navigate = useNavigate()
 
   // get subjects and tests from firestore
   const [subjects, subjectsLoading] = useSubjects()
@@ -85,9 +88,8 @@ const GradeForm: React.FC = () => {
 
       setSuccess(true)
 
-      // if grade push success go to main page
-      // TODO: change redirection to test ranking page
-      // navigate('/app')
+      // TODO: rediriger vers la bonne note
+      navigate('/app/test-ranking')
     }
     finally {
       setLoading(false)
