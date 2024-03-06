@@ -13,7 +13,7 @@ const LandingPage: React.FC = () => {
     <PublicLayout>
       <section className="min-h-screen w-full flex items-center flex-col px-6 py-14">
         <h1 className="text-4xl font-bold text-center mb-10">MP2I Lamartin Classement</h1>
-        <div className="flex flex-col gap-2 w-full mt-auto">
+        <div className="flex flex-col gap-2 w-full mt-auto" mb-6>
           <Button color="primary" as={Link} to="/login">
             Connexion
           </Button>
