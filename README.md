@@ -1,3 +1,4 @@
+Avaliable at https://mp2i-lamartin.fr/
 
 ## Features à ajouter avant de publier :
 
@@ -7,7 +8,7 @@
 - [x] Infos sur la note
 - [x] Classement par DS (rediriger l'utilisateur sur ce classement un fois la note publié)
 - [x] Refaire le calcul de moyenne générale (useGeneralRanking)
-- [ ] Réparer le router
+- [x] Réparer le router
 
 
 ## Idées de features :
